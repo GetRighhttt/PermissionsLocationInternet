@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun requestPermissions() {
         // declare the mutable list of type string to add permissions if necessary.
-        var permissionsToRequest = mutableListOf<String>()
+        val permissionsToRequest = mutableListOf<String>()
 
         // If user did not accept permissions, then add it to the list.
         if(!hasWriteExternalStoragePermission()) {
