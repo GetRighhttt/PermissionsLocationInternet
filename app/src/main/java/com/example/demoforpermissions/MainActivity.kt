@@ -65,6 +65,15 @@ class MainActivity : AppCompatActivity() {
         ) == PackageManager.PERMISSION_GRANTED // returns a result of permission granted
 
     /*
+    Permission for accessing the internet.
+     */
+    private fun hasInternetPermission() =
+        ActivityCompat.checkSelfPermission(
+            this,
+            Manifest.permission.INTERNET
+        ) == PackageManager.PERMISSION_GRANTED
+
+    /*
     We always need to define the permissions as an array even if we only have one permission.
 
     We will use a string array because the permissions are all Strings.
@@ -82,6 +91,9 @@ class MainActivity : AppCompatActivity() {
         }
         if(!hasLocationBackgroundPermission()) {
             permissionsToRequest.add(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+        if(!hasInternetPermission()) {
+            permissionsToRequest.add(Manifest.permission.INTERNET)
         }
 
         /*
